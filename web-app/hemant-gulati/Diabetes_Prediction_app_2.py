@@ -37,7 +37,7 @@ def set_background():
         .title {{
             color: #1a3d6d; /* Dark blue */
             font-size: 2.5em;
-            font-weight: 500;
+            font-weight: bold;
         }}
         .header {{
             color: #191970; /* Blue */
