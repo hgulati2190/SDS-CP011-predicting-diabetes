@@ -12,7 +12,7 @@ import base64
 
 # Set background with overlay
 def set_background():
-    background_image_path = "web-app/hemant-gulati/app_background.jpg"  # Replace with your image path
+    background_image_path = "web-app/hemant-gulati/app_background.jpg"  
     with open(background_image_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode()
 
