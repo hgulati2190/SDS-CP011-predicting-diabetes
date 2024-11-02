@@ -41,7 +41,7 @@ def set_background():
         }}
         .header {{
             color: #333333; /* Charcoal gray */
-            font-size: 1.75em;
+            font-size: 1em;
         }}
         </style>
         """,
