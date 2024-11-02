@@ -65,9 +65,9 @@ try:
 except Exception as e:
     st.write(f"Error loading pipeline: {e}")
 
-# Apply custom styles for input labels
+# Custom label function with no bottom margin
 def styled_label(label_text):
-    st.markdown(f"<p style='color: #1a3d6d; font-weight: bold; font-size: 1.1em;'>{label_text}</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='color: ##A0522D; font-weight: bold; font-size: 1.1em; margin-bottom: 0px;'>{label_text}</p>", unsafe_allow_html=True)
 
 # Define input fields with styled labels
 styled_label("HbA1c Level (e.g., 5.5)")
@@ -114,13 +114,13 @@ if st.button("Predict"):
     # Display the prediction and confidence level
     st.subheader("Prediction Results")
     for index, row in results.iterrows():
-        # Style the prediction result
-        st.markdown(f"<p style='font-weight: bold; color: #1a3d6d;'>Prediction: {row['Prediction']}</p>", 	unsafe_allow_html=True)
+        st.write(f"**Prediction:** {row['Prediction']}")
+        #st.write(f"**Confidence Level:** {row['Probability'] * 100:.2f}%")
 
     # Suggest the next steps based on the prediction
     if row['Prediction'] == "Non-diabetic":
-        st.markdown("<p style='color: #4CAF50;'>Patient is likely non-diabetic. Maintain a healthy lifestyle to 	reduce future risks.</p>", unsafe_allow_html=True)
+        st.write("Patient is likely non-diabetic. Maintain a healthy lifestyle to reduce future risks.")
     elif row['Prediction'] == "Pre-diabetic":
-        st.markdown("<p style='color: #FF9800;'>Patient is likely pre-diabetic. Consider consulting a healthcare 	provider for lifestyle advice.</p>", unsafe_allow_html=True)
+        st.write("Patient is likely pre-diabetic. Consider consulting a healthcare provider for lifestyle advice.")
     else:
-        st.markdown("<p style='color: #f44336;'>Patient is likely diabetic. Seek professional medical guidance for 	appropriate treatment.</p>", unsafe_allow_html=True)
+        st.write("Patient is likely diabetic. Seek professional medical guidance for appropriate treatment.")
