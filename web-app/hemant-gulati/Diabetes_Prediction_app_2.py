@@ -66,29 +66,29 @@ except Exception as e:
     st.write(f"Error loading pipeline: {e}")
 
 # Custom label function to reduce spacing with input box
-def styled_label(label_text, color="#8B4513"):
+def styled_label(label_text, color="#2F4F4F"):
     st.markdown(f"<p style='color: {color}; font-weight: bold; font-size: 1.1em; margin-bottom: -5px;'>{label_text}</p>", unsafe_allow_html=True)
 
 # Define input fields with custom labels above each
-styled_label("HbA1c Level (e.g., 5.5)", "#8B4513")  # Brown
+styled_label("HbA1c Level (e.g., 5.5)", "#2F4F4F")  
 hbA1c_level = st.number_input("", min_value=0.0, max_value=15.0, value=5.5, step=0.1)
 
-styled_label("Blood Glucose Level (e.g., 100)", "#8B4513")  # Brown
+styled_label("Blood Glucose Level (e.g., 100)", "#2F4F4F")  
 blood_glucose_level = st.number_input("", min_value=0, max_value=400, value=100, step=1)
 
-styled_label("BMI (e.g., 24.5)", "#8B4513")  # Brown
+styled_label("BMI (e.g., 24.5)", "#2F4F4F")  
 bmi = st.number_input("", min_value=0.0, max_value=70.0, value=24.5, step=0.1)
 
-styled_label("Age (e.g., 45)", "#8B4513")  # Brown
+styled_label("Age (e.g., 45)", "#2F4F4F")  
 age = st.number_input("", min_value=0, max_value=120, value=45, step=1)
 
-styled_label("Hypertension (0 for No, 1 for Yes)", "#8B4513")  # Brown
+styled_label("Hypertension (0 for No, 1 for Yes)", "#2F4F4F")  
 hypertension = st.selectbox("", options=[0, 1])
 
-styled_label("Smoking History (0 for No, 1 for Yes)", "#8B4513")  # Brown
+styled_label("Smoking History (0 for No, 1 for Yes)", "#2F4F4F")  
 smoking_history = st.selectbox("", options=[0, 1])
 
-styled_label("Heart Disease (0 for No, 1 for Yes)", "#8B4513")  # Brown
+styled_label("Heart Disease (0 for No, 1 for Yes)", "#2F4F4F")  
 heart_disease = st.selectbox("", options=[0, 1])
 
 # Define input fields with default Streamlit labels (now styled by CSS)
