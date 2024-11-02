@@ -40,7 +40,7 @@ def set_background():
             font-weight: bold;
         }}
         .header {{
-            color: #4682B4; /* Blue */
+            color: #4169E1; /* Blue */
             font-size: 1em;
         }}
         </style>
