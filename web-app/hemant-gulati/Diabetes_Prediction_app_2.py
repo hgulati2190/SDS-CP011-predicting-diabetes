@@ -69,8 +69,9 @@ except Exception as e:
 st.markdown(
     """
     <style>
-    /* Target the labels of input fields */
-    label {
+    /* Target the labels for Streamlit input widgets */
+    div[data-baseweb="input"] > label, /* For number input labels */
+    div[data-baseweb="select"] > label { /* For select box labels */
         color: #8B4513; /* Brown color */
         font-weight: bold;
         font-size: 1.1em;
