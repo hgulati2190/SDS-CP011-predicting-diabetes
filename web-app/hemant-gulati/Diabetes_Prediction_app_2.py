@@ -66,29 +66,29 @@ except Exception as e:
     st.write(f"Error loading pipeline: {e}")
 
 # Custom label function to reduce spacing with input box
-def styled_label(label_text, color="#FFFFFF"):
+def styled_label(label_text, color="#EAEAEA"):
     st.markdown(f"<p style='color: {color}; font-weight: bold; font-size: 1.1em; margin-bottom: -5px;'>{label_text}</p>", unsafe_allow_html=True)
 
 # Define input fields with unique labels to avoid duplicate IDs
-styled_label("HbA1c Level (e.g., 5.5)", "#FFFFFF")  
+styled_label("HbA1c Level (e.g., 5.5)", "#EAEAEA")  
 hbA1c_level = st.number_input("hbA1c_input", min_value=0.0, max_value=15.0, value=5.5, step=0.1, label_visibility="collapsed")
 
-styled_label("Blood Glucose Level (e.g., 100)", "#FFFFFF")  
+styled_label("Blood Glucose Level (e.g., 100)", "#EAEAEA")  
 blood_glucose_level = st.number_input("blood_glucose_input", min_value=0, max_value=400, value=100, step=1, label_visibility="collapsed")
 
-styled_label("BMI (e.g., 24.5)", "#FFFFFF") 
+styled_label("BMI (e.g., 24.5)", "#EAEAEA") 
 bmi = st.number_input("bmi_input", min_value=0.0, max_value=70.0, value=24.5, step=0.1, label_visibility="collapsed")
 
-styled_label("Age (e.g., 45)", "#FFFFFF") 
+styled_label("Age (e.g., 45)", "#EAEAEA") 
 age = st.number_input("age_input", min_value=0, max_value=120, value=45, step=1, label_visibility="collapsed")
 
-styled_label("Hypertension (0 for No, 1 for Yes)", "#FFFFFF") 
+styled_label("Hypertension (0 for No, 1 for Yes)", "#EAEAEA") 
 hypertension = st.selectbox("hypertension_select", options=[0, 1], label_visibility="collapsed")
 
-styled_label("Smoking History (0 for No, 1 for Yes)", "#FFFFFF") 
+styled_label("Smoking History (0 for No, 1 for Yes)", "#EAEAEA") 
 smoking_history = st.selectbox("smoking_history_select", options=[0, 1], label_visibility="collapsed")
 
-styled_label("Heart Disease (0 for No, 1 for Yes)", "#1A3D6D")  
+styled_label("Heart Disease (0 for No, 1 for Yes)", "#EAEAEA")  
 heart_disease = st.selectbox("heart_disease_select", options=[0, 1], label_visibility="collapsed")
 
 
