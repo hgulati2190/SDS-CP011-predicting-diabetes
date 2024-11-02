@@ -65,30 +65,40 @@ try:
 except Exception as e:
     st.write(f"Error loading pipeline: {e}")
 
-# Apply custom CSS for input labels
-st.markdown(
-    """
-    <style>
-    /* Target the labels for Streamlit input widgets */
-    div[data-baseweb="input"] > label, /* For number input labels */
-    div[data-baseweb="select"] > label { /* For select box labels */
-        color: #8B4513; /* Brown color */
-        font-weight: bold;
-        font-size: 1.1em;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Custom label function to reduce spacing with input box
+def styled_label(label_text, color="#8B4513"):
+    st.markdown(f"<p style='color: {color}; font-weight: bold; font-size: 1.1em; margin-bottom: -5px;'>{label_text}</p>", unsafe_allow_html=True)
+
+# Define input fields with custom labels above each
+styled_label("HbA1c Level (e.g., 5.5)", "#8B4513")  # Brown
+hbA1c_level = st.number_input("", min_value=0.0, max_value=15.0, value=5.5, step=0.1)
+
+styled_label("Blood Glucose Level (e.g., 100)", "#8B4513")  # Brown
+blood_glucose_level = st.number_input("", min_value=0, max_value=400, value=100, step=1)
+
+styled_label("BMI (e.g., 24.5)", "#8B4513")  # Brown
+bmi = st.number_input("", min_value=0.0, max_value=70.0, value=24.5, step=0.1)
+
+styled_label("Age (e.g., 45)", "#8B4513")  # Brown
+age = st.number_input("", min_value=0, max_value=120, value=45, step=1)
+
+styled_label("Hypertension (0 for No, 1 for Yes)", "#8B4513")  # Brown
+hypertension = st.selectbox("", options=[0, 1])
+
+styled_label("Smoking History (0 for No, 1 for Yes)", "#8B4513")  # Brown
+smoking_history = st.selectbox("", options=[0, 1])
+
+styled_label("Heart Disease (0 for No, 1 for Yes)", "#8B4513")  # Brown
+heart_disease = st.selectbox("", options=[0, 1])
 
 # Define input fields with default Streamlit labels (now styled by CSS)
-hbA1c_level = st.number_input("HbA1c Level (e.g., 5.5)", min_value=0.0, max_value=15.0, value=5.5, step=0.1)
-blood_glucose_level = st.number_input("Blood Glucose Level (e.g., 100)", min_value=0, max_value=400, value=100, step=1)
-bmi = st.number_input("BMI (e.g., 24.5)", min_value=0.0, max_value=70.0, value=24.5, step=0.1)
-age = st.number_input("Age (e.g., 45)", min_value=0, max_value=120, value=45, step=1)
-hypertension = st.selectbox("Hypertension (0 for No, 1 for Yes)", options=[0, 1])
-smoking_history = st.selectbox("Smoking History (0 for No, 1 for Yes)", options=[0, 1])
-heart_disease = st.selectbox("Heart Disease (0 for No, 1 for Yes)", options=[0, 1])
+# hbA1c_level = st.number_input("HbA1c Level (e.g., 5.5)", min_value=0.0, max_value=15.0, value=5.5, step=0.1)
+# blood_glucose_level = st.number_input("Blood Glucose Level (e.g., 100)", min_value=0, max_value=400, value=100, step=1)
+# bmi = st.number_input("BMI (e.g., 24.5)", min_value=0.0, max_value=70.0, value=24.5, step=0.1)
+# age = st.number_input("Age (e.g., 45)", min_value=0, max_value=120, value=45, step=1)
+# hypertension = st.selectbox("Hypertension (0 for No, 1 for Yes)", options=[0, 1])
+# smoking_history = st.selectbox("Smoking History (0 for No, 1 for Yes)", options=[0, 1])
+# heart_disease = st.selectbox("Heart Disease (0 for No, 1 for Yes)", options=[0, 1])
 
 # Prediction button
 if st.button("Predict"):
