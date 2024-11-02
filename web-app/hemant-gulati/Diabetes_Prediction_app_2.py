@@ -21,14 +21,14 @@ def set_background():
         f"""
         <style>
         .stApp {{
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("data:image/jpeg;base64,{encoded_string}");
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("data:image/jpeg;base64,{encoded_string}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }}
         .title-box, .header-box {{
-            background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent background */
+            background-color: rgba(255, 255, 255, 0.85); /* Light semi-transparent background */
             padding: 10px;
             border-radius: 8px;
             width: fit-content;
