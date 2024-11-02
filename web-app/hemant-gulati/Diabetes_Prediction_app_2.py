@@ -123,12 +123,12 @@ if st.button("Predict"):
 
     # Display the prediction
     st.markdown(
-    "<h3 style='color: #191970;'>Prediction Results</h3>",
+    "<h3 style='color: #000000;'>Prediction Results</h3>",
     unsafe_allow_html=True
 	)
     for index, row in results.iterrows():
         # Style the prediction result
-        st.markdown(f"<p style='font-weight: bold; color: #191970;'>Prediction: {row['Prediction']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='font-weight: bold; color: #000000;'>Prediction: {row['Prediction']}</p>", unsafe_allow_html=True)
 
     # Suggest the next steps based on the prediction
     if row['Prediction'] == "Non-diabetic":
