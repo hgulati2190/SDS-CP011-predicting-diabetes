@@ -65,13 +65,32 @@ try:
 except Exception as e:
     st.write(f"Error loading pipeline: {e}")
 
-hbA1c_level = st.number_input("HbA1c Level (e.g., 5.5)", min_value=0.0, max_value=15.0, value=5.5, step=0.1)
-blood_glucose_level = st.number_input("Blood Glucose Level (e.g., 100)", min_value=0, max_value=400, value=100, step=1)
-bmi = st.number_input("BMI (e.g., 24.5)", min_value=0.0, max_value=70.0, value=24.5, step=0.1)
-age = st.number_input("Age (e.g., 45)", min_value=0, max_value=120, value=45, step=1)
-hypertension = st.selectbox("Hypertension (0 for No, 1 for Yes)", options=[0, 1])
-smoking_history = st.selectbox("Smoking History (0 for No, 1 for Yes)", options=[0, 1])
-heart_disease = st.selectbox("Heart Disease (0 for No, 1 for Yes)", options=[0, 1])
+# Apply custom styles for input labels
+def styled_label(label_text):
+    st.markdown(f"<p style='color: #1a3d6d; font-weight: bold; font-size: 1.1em;'>{label_text}</p>", unsafe_allow_html=True)
+
+# Define input fields with styled labels
+styled_label("HbA1c Level (e.g., 5.5)")
+hbA1c_level = st.number_input("", min_value=0.0, max_value=15.0, value=5.5, step=0.1)
+
+styled_label("Blood Glucose Level (e.g., 100)")
+blood_glucose_level = st.number_input("", min_value=0, max_value=400, value=100, step=1)
+
+styled_label("BMI (e.g., 24.5)")
+bmi = st.number_input("", min_value=0.0, max_value=70.0, value=24.5, step=0.1)
+
+styled_label("Age (e.g., 45)")
+age = st.number_input("", min_value=0, max_value=120, value=45, step=1)
+
+styled_label("Hypertension (0 for No, 1 for Yes)")
+hypertension = st.selectbox("", options=[0, 1])
+
+styled_label("Smoking History (0 for No, 1 for Yes)")
+smoking_history = st.selectbox("", options=[0, 1])
+
+styled_label("Heart Disease (0 for No, 1 for Yes)")
+heart_disease = st.selectbox("", options=[0, 1])
+
 
 # Prediction button
 if st.button("Predict"):
@@ -95,13 +114,13 @@ if st.button("Predict"):
     # Display the prediction and confidence level
     st.subheader("Prediction Results")
     for index, row in results.iterrows():
-        st.write(f"**Prediction:** {row['Prediction']}")
-        #st.write(f"**Confidence Level:** {row['Probability'] * 100:.2f}%")
+        # Style the prediction result
+        st.markdown(f"<p style='font-weight: bold; color: #1a3d6d;'>Prediction: {row['Prediction']}</p>", 	unsafe_allow_html=True)
 
     # Suggest the next steps based on the prediction
     if row['Prediction'] == "Non-diabetic":
-        st.write("Patient is likely non-diabetic. Maintain a healthy lifestyle to reduce future risks.")
+        st.markdown("<p style='color: #4CAF50;'>Patient is likely non-diabetic. Maintain a healthy lifestyle to 	reduce future risks.</p>", unsafe_allow_html=True)
     elif row['Prediction'] == "Pre-diabetic":
-        st.write("Patient is likely pre-diabetic. Consider consulting a healthcare provider for lifestyle advice.")
+        st.markdown("<p style='color: #FF9800;'>Patient is likely pre-diabetic. Consider consulting a healthcare 	provider for lifestyle advice.</p>", unsafe_allow_html=True)
     else:
-        st.write("Patient is likely diabetic. Seek professional medical guidance for appropriate treatment.")
+        st.markdown("<p style='color: #f44336;'>Patient is likely diabetic. Seek professional medical guidance for 	appropriate treatment.</p>", unsafe_allow_html=True)
