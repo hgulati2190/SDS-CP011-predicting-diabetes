@@ -123,13 +123,13 @@ if st.button("Predict"):
     # Display the prediction and confidence level
     st.subheader("Prediction Results")
     for index, row in results.iterrows():
-        st.write(f"**Prediction:** {row['Prediction']}")
-        st.write(f"**Confidence Level:** {row['Probability'] * 100:.2f}%")
+        # Style the prediction result
+        st.markdown(f"<p style='font-weight: bold; color: #1a3d6d;'>Prediction: {row['Prediction']}</p>", unsafe_allow_html=True)
 
     # Suggest the next steps based on the prediction
     if row['Prediction'] == "Non-diabetic":
-        st.write("Patient is likely non-diabetic. Maintain a healthy lifestyle to reduce future risks.")
+        st.markdown("<p style='color: #4CAF50;'>Patient is likely non-diabetic. Maintain a healthy lifestyle to reduce future risks.</p>", 	unsafe_allow_html=True)
     elif row['Prediction'] == "Pre-diabetic":
-        st.write("Patient is likely pre-diabetic. Consider consulting a healthcare provider for lifestyle advice.")
+        st.markdown("<p style='color: #FF9800;'>Patient is likely pre-diabetic. Consider consulting a healthcare provider for lifestyle advice.</p>", 	unsafe_allow_html=True)
     else:
-        st.write("Patient is likely diabetic. Seek professional medical guidance for appropriate treatment.")
+        st.markdown("<p style='color: #f44336;'>Patient is likely diabetic. Seek professional medical guidance for appropriate treatment.</p>", 	unsafe_allow_html=True)
